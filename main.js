@@ -1,11 +1,14 @@
-const response = await fetch("./quotes.json");
-const quotes = await response.json();
+const response = await fetch("./settings.json");
+const settings = await response.json();
 
-console.log(quotes);
+console.log(settings);
 
 const tagline = document.getElementById("tagline");
+const link = document.getElementById("button");
+
+link.setAttribute("href", settings.button);
 
 setInterval(() => {
-    let randomNumber = Math.floor(Math.random() * quotes.length);
-    tagline.innerHTML = quotes[randomNumber];
+    let randomNumber = Math.floor(Math.random() * settings.quotes.length);
+    tagline.innerHTML = settings.quotes[randomNumber];
 }, 2000);
